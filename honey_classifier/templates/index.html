@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Form</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        text-align: center;
+        margin: 0 auto;
+        max-width: 600px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    form {
+        text-align: left;
+        display: flex;
+    }
+
+    label, input, select {
+        margin-bottom: 10px;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    input[type="text"], select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        transition: border-color 0.3s;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 2px 2px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    h2 {
+        margin-top: 20px;
+        color: #007bff;
+    }
+    .first{
+        float: left;
+    }
+    .second{
+        float: right;
+        margin-left: 30vh;
+    }
+</style>
+
+</head>
+<body>
+    <h1>Honey Classification Based on Mineral Resources</h1>
+    <h2>Enter Data</h2>
+    <form action="/predict" method="post">
+        <div class="first">
+        <label for="Al">Al:</label>
+        <input type="text" id="Al" name="Al"><br><br>
+
+        <label for="B">B:</label>
+        <input type="text" id="B" name="B"><br><br>
+
+        <label for="Ba">Ba:</label>
+        <input type="text" id="Ba" name="Ba"><br>
+
+        <label for="Ca">Ca:</label>
+        <input type="text" id="Ca" name="Ca"><br><br>
+
+        <label for="Fe">Fe:</label>
+        <input type="text" id="Fe" name="Fe" ><br><br>
+
+        <label for="K">K:</label>
+        <input type="text" id="K" name="K" ><br><br>
+
+        <label for="Mg">Mg:</label>
+        <input type="text" id="Mg" name="Mg" ><br><br>
+
+        <label for="Mn">Mn:</label>
+        <input type="text" id="Mn" name="Mn" ><br><br>
+    </div>
+        <div class="second">
+
+        <label for="Na">Na:</label>
+        <input type="text" id="Na" name="Na" ><br><br>
+
+        <label for="P">P:</label>
+        <input type="text" id="P" name="P" ><br><br>
+
+        <label for="Sr">Sr:</label>
+        <input type="text" id="Sr" name="Sr" ><br><br>
+
+        <label for="Zn">Zn:</label>
+        <input type="text" id="Zn" name="Zn" ><br><br>
+
+        <label for="TorF">TorF:</label>
+        <select id="TorF" name="TorF">
+            <option value="Honey" selected>Honey</option>
+            <option value="Syrup">Syrup</option>
+            <option value="Adulterated honey">Adulterated honey</option>
+        </select><br><br>
+
+        <label for="group">Group:</label>
+        <input type="text" id="group" name="group" value="AC"><br><br>
+
+        <label for="bot1">Bot1:</label>
+        <input type="text" id="bot1" name="bot1" value="AC-1-1"><br><br>
+
+        <label for="bot2">Bot2:</label>
+        <input type="text" id="bot2" name="bot2" value="AC1"><br><br>
+    </div>
+        <input type="submit" value="Submit">
+    </form>
+    {% if prediction %}
+        <h2>The predicted region is: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
